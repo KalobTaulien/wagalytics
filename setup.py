@@ -6,8 +6,10 @@ try:
     cmdclass = {
         'sdist': sdist
     }
-except Exception as (e):
+except Exception as e:
     cmdclass = {}
+    print(e)
+    print(type(e))
 
 from wagalytics import __version__
 
