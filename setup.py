@@ -1,7 +1,14 @@
 from os import path
 
 from setuptools import setup, find_packages
-from wagtail.utils.setup import sdist
+try:
+    from wagtail.utils.setup import sdist
+    cmdclass = {
+        'sdist': sdist
+    }
+except Exception as (e):
+    cmdclass = {}
+
 from wagalytics import __version__
 
 setup(
@@ -33,7 +40,5 @@ setup(
         "wagtailfontawesome>=1.0.2",
         "pyexcel-ods==0.5.3"
     ],
-    cmdclass={
-        'sdist': sdist
-    }
+    cmdclass=cmdclass
 )
