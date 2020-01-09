@@ -4,14 +4,6 @@ from setuptools import setup, find_packages
 from wagtail.utils.setup import sdist
 from wagalytics import __version__
 
-
-testing_extras = [
-    'pytest==5.3.1',
-    'pytest-django==3.7.0',
-    'wagtail-factories==2.0.0',
-    'factory-boy==2.11.0',
-]
-
 setup(
     name='wagalytics',
     version=__version__,
@@ -37,14 +29,11 @@ setup(
     install_requires=[
         "wagtail>=0.8.7",
         "Django>=1.7.1",
-        "google-api-python-client==1.5.5",
-        "oauth2client<3,>=2.0.0",
-        "wagtailfontawesome>= 1.0.2"
+        "oauth2client",
+        "wagtailfontawesome>=1.0.2",
+        "pyexcel-ods==0.5.3"
     ],
     cmdclass={
         'sdist': sdist
-    },
-    extras_require={
-        'testing': testing_extras,
-    },
+    }
 )
